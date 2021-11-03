@@ -1,24 +1,30 @@
-# README
+# <ハンドメイド>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+<手作りした小物やアクセサリーを投稿するサイトで、制作依頼の受付も出来ます。>
 
-Things you may want to cover:
+### サイトテーマ
+<相談や依頼を受けてみたいと言った人のための気軽に使えるサイト>
 
-* Ruby version
+### テーマを選んだ理由
+<私の周りにはアクセサリーやバッグなどを手作りすることを趣味としている人が多いのですが、
+「ここをこんな色にして欲しい」「こんな感じのものは作れないですか？」と依頼や相談をして
+もらえるとよりやりがいを持って趣味に没頭できるという話を聞いて、相談や依頼を気軽にでき
+るサイトがあればいいなと思いこのテーマにしました。>
 
-* System dependencies
+### ターゲットユーザ
+<ハンドメイドを趣味としている人>
 
-* Configuration
+### 主な利用シーン
+<手作りした小物やアクセサリーを投稿する。制作の依頼を受ける。>
 
-* Database creation
 
-* Database initialization
+## チャレンジ要素一覧
+<https://docs.google.com/spreadsheets/d/1sxnRxvadlTSCNsUn3skTa2qxhS94TabyGGEGr7QgYMQ/edit?usp=sharing>
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
