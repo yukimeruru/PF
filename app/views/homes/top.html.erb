@@ -1,0 +1,12 @@
+<h1>ようこそHandMadeへ！</h1>
+<h2>
+  ユーザー登録していない方も閲覧できますが、<br>
+  サービスのご利用にはユーザー登録が必要になります。
+</h2>
+
+<h4>新着作品</h4>
+<% @items.each do |item| %>
+<%= attachment_image_tag %>
+<%= item.name %>
+<%= item.item_status %>
+<% end %>
