@@ -6,7 +6,7 @@
 
 <h4>新着作品</h4>
 <% @items.each do |item| %>
-<%= attachment_image_tag %>
+<%= attachment_image_tag item, :image, :fill, 100, 100  %>
 <%= item.name %>
 <%= item.item_status %>
 <% end %>
