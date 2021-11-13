@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get "about" => "homes#about"
 
-  resource :users, only: [:edit, :update, :show, :destroy]
+  resources :users, only: [:edit, :index, :update, :show, :destroy]
   get "users/out" => "users#out"
 
-  resource :items
+  resources :items
 
-  resource :orders
+  resources :orders
   get "orders/reply" => "orders#reply"
 
 end

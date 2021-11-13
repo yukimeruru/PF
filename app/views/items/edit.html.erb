@@ -1,0 +1,10 @@
+<h2>商品編集</h2>
+<%= form_with model:@item, url:item_path(@item.id), local:true do |f| %>
+<%= f.attachment_field :image %>
+<%= f.text_field :name %>
+<%= f.text_area :description %>
+<%= f.radio_button :item_status, 0 %>作品投稿
+<%= f.radio_button :item_status, 1 %>依頼受付中
+<%= f.radio_button :item_status, 2 %>依頼受付停止中
+<%= f.submit "変更保存" %>
+<% end %>

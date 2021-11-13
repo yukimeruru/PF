@@ -12,9 +12,13 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
+    @Item = Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to items_path(@item.id)
   end
 
   def index
@@ -27,6 +31,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    Item.find_by(id: params[:id]).destroy
+    redirect_to items_path(params[:item_id])
   end
 
   private
