@@ -5,7 +5,8 @@
 <h4>作品名</h4>
 <%= f.text_field :name %>
 <h4>作品説明</h4>
-<%= t.text_area :description %>
+<%#= f.label :description, '作品説明' %>
+<%= f.text_area :description %>
 <h4>アイテムステータス</h4>
 <%= f.radio_button :item_status, 0, checked: true %>作品投稿
 <%= f.radio_button :item_status, 1 %>依頼受付中

@@ -17,11 +17,11 @@ class OrdersController < ApplicationController
 
   def destroy
   end
-  
+
   private
-  
+
   def orders_params
     params.require(:orders).permit(:user_id, :item_id, :order_comment, :comment_status, :image)
   end
-  
+
 end
