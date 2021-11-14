@@ -1,8 +1,11 @@
 <h2>依頼作成</h2>
-<%= form_with model: @order, url:orders_path, local: true do |f| %>
+<%= attachment_image_tag(@item, :image, :fill, 200, 200) %>
+<%= @item.name %>
+<%= form_with model: @order, url:"/users/:id/orders", local: true do |f| %>
 <%= f.attachment_field :image %>
 <%= f.text_area :order_comment %>
 <%= f.radio_button :comment_status, 0 %> 製作依頼
 <%= f.radio_button :comment_status, 1 %> 質問・相談
+<%= f.hidden_field :item_id, :value => @item.id %>
 <%= f.submit "送信" %>
 <% end %>

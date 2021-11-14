@@ -1,0 +1,7 @@
+<h2>依頼作成</h2>
+<%= form_with model: @order, url:"/users/:id/orders", local: true do |f| %>
+<%= f.attachment_field :image %>
+<%= f.text_area :order_comment %>
+<%= f.hidden_field :comment_status, :value => 2 %>
+<%= f.submit "送信" %>
+<% end %>

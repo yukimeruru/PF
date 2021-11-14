@@ -1,5 +1,5 @@
 <h2>依頼一覧</h2>
-<% @order.each do |order| %>
-<%= order.order_comment %>
+<% @orders.each do |order| %>
+<%= order.user %>
 <%= order.comment_status %>
 <% end %>

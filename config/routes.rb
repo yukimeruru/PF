@@ -8,7 +8,12 @@ Rails.application.routes.draw do
 
   resources :items
 
-  resources :orders
+  get "items/:id/orders/new" => "orders#new"
+  get "users/:id/orders" => "orders#index"
+  post "users/:id/orders" => "orders#create"
+  get "users/:id/orders/:id" => "orders#show"
+  delete "users/:id/orders/:id" => "orders#destroy"
+  get "users/:id/orders/reply" => "orders#reply"
   get "orders/reply" => "orders#reply"
 
 end

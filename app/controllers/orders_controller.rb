@@ -2,24 +2,27 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @item = Item.find(params[:id])
   end
 
   def create
     @order = Order.new(order_params)
     @order.user_id = current_user.id
-    @order.item_id = Item.find(params[:id])
     @order.save
     redirect_to item_path(@order)
   end
 
   def reply
+    @orser = Order.new
   end
 
   def index
-    @order = Order.all
+    @user = User.find(params[:id])
+    @orders = Order.where()
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   def destroy
