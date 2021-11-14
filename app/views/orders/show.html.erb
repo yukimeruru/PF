@@ -1,6 +1,6 @@
 <h2>依頼詳細</h2>
-<%= @order.user %>
-<%= @order.item %>
+<%= @order.user.name %>
+<%= @order.item.name %>
 <%= @order.order_comment %>
-<%= attachment_image_tag(@order, :image, :fill, 200, 200) %>
+<%= attachment_image_tag @order, :image_id, :fill, 100, 100 %>
 <%= @order.comment_status %>

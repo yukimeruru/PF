@@ -7,5 +7,6 @@
 <%= f.radio_button :comment_status, 0 %> 製作依頼
 <%= f.radio_button :comment_status, 1 %> 質問・相談
 <%= f.hidden_field :item_id, :value => @item.id %>
+<%= f.hidden_field :user_id, :value => @item.user_id %>
 <%= f.submit "送信" %>
 <% end %>

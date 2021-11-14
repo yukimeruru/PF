@@ -7,18 +7,17 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.user_id = current_user.id
     @order.save
     redirect_to item_path(@order)
   end
 
   def reply
-    @orser = Order.new
+    @order = Order.new
   end
 
   def index
     @user = User.find(params[:id])
-    @orders = Order.where()
+    @orders = @user.orders.reverse_order
   end
 
   def show
@@ -31,7 +30,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user_id, :item_id, :order_comment, :comment_status, :image)
+    params.require(:order).permit(:user_id, :item_id, :order_comment, :comment_status, :image, :creater_id)
   end
 
 end
