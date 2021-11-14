@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "about" => "homes#about"
 
   resources :users, only: [:edit, :index, :update, :show, :destroy]
-  get "users/out" => "users#out"
+  get "out" => "users#out"
 
   resources :items
 
