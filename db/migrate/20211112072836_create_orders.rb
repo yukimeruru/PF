@@ -5,7 +5,6 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.integer :item_id, null: false
       t.text :order_comment, null: false
       t.integer :comment_status, null: false
-      t.string :image_id
 
       t.timestamps
     end

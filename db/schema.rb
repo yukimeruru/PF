@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2021_11_12_074421) do
     t.integer "item_id", null: false
     t.text "order_comment", null: false
     t.integer "comment_status", null: false
-    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -7,8 +7,9 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.user_id = current_user.id
     @order.save
-    redirect_to item_path(@order)
+    redirect_to items_path
   end
 
   def reply
@@ -16,7 +17,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @orders = @user.orders.reverse_order
   end
 
