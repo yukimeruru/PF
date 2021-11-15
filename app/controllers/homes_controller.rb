@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
 
   def top
-    @items = Item.all.order("id DESC").limit(8)
+    @items = Item.all.order("id DESC").limit(6)
   end
 
   def about
