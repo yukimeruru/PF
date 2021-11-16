@@ -1,10 +1,36 @@
-<h2>商品編集</h2>
-<%= form_with model:@item, url:item_path(@item.id), local:true do |f| %>
-<%= f.attachment_field :image %>
-<%= f.text_field :name %>
-<%= f.text_area :description %>
-<%= f.radio_button :item_status, 0 %>作品投稿
-<%= f.radio_button :item_status, 1 %>依頼受付中
-<%= f.radio_button :item_status, 2 %>依頼受付停止中
-<%= f.submit "変更保存" %>
+<% if @item.errors.any? %>
+  error
+  <%= @item.errors.count %>件のエラーが発生しました
+  <% @item.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
 <% end %>
+
+<div class="container my-3">
+  <h2>商品編集</h2>
+  <div class="row">
+    <dev class="col my-3">
+      <%= form_with model:@item, url:item_path(@item.id), local:true do |f| %>
+        <div class="form-group">
+          <%= f.label :作品画像 %><br>
+          <%= f.attachment_field :image %>
+        </div>
+        <div class="form-group">
+          <%= f.label :作品名 %>
+        　<%= f.text_field :name, class: 'col-6 form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :作品説明 %>
+          <%= f.text_area :description, class: 'col-6 form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :作品ステータス %>
+        　<%= f.radio_button :item_status, 0 %>作品投稿
+        　<%= f.radio_button :item_status, 1 %>依頼受付中
+        　<%= f.radio_button :item_status, 2 %>依頼受付停止中
+        </div>
+        <%= f.submit "変更保存", class: 'btn btn-sm btn-secondary' %>
+        </dev>
+      <% end %>
+  </div>
+</div>
