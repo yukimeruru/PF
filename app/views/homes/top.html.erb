@@ -10,15 +10,16 @@
   </div>
   <h4>－新着作品－</h4>
   <div class="row">
-    <% @items.each do |item| %>
-      <div class="col-2 my-3">
-        <%= link_to item_path(item) do %>
-          <%= attachment_image_tag item, :image, :fill, 150, 150  %><br>
-        <% end %>
-        作品名：<%= item.name %><br>
-        <%= item.item_status %>
-      </div>
-    <% end %>
+    <div class="d-flex flex-row flex-wrap">
+      <% @items.each do |item| %>
+        <div class="d-flex flex-column mr-5 mt-3">
+          <%= link_to item_path(item) do %>
+            <%= attachment_image_tag item, :image, :fill, 150, 150  %><br>
+          <% end %>
+          作品名：<%= item.name %><br>
+          <%= item.item_status_i18n %>
+        </div>
+      <% end %>
   </div>
   <div style= "margin-left: 85%">
     <%= link_to "全ての商品を見る＞", items_path %>

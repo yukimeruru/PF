@@ -6,10 +6,10 @@
   <% end %>
 <% end %>
 
-<div class="container my-3">
-  <h2>作品新規投稿</h2>
+<div class="container offset-2 my-3">
   <div class="row">
-    <dev class="col my-3">
+    <div class="col-8 mx-auto">
+      <h2>作品新規投稿</h2>
       <%= form_with model: @item, url:items_path, local:true do |f| %>
         <div class="form-group">
           <%= f.label :作品画像 %><br>
@@ -25,9 +25,9 @@
         </div>
         <div class="form-group">
           <%= f.label :作品ステータス %>
-          <%= f.radio_button :item_status, 0, checked: true %>作品投稿
-          <%= f.radio_button :item_status, 1 %>依頼受付中
-          <%= f.radio_button :item_status, 2 %>依頼受付停止中
+          <%= f.radio_button :item_status, 0, checked: true %> 作品投稿
+          <%= f.radio_button :item_status, 1 %> 依頼受付中
+          <%= f.radio_button :item_status, 2 %> 依頼受付停止中
         </div>
 
         <%= f.submit '作品登録', class: 'btn btn-sm btn-secondary' %>

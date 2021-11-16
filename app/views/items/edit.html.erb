@@ -6,10 +6,10 @@
   <% end %>
 <% end %>
 
-<div class="container my-3">
-  <h2>商品編集</h2>
+<div class="container offset-2 my-3">
   <div class="row">
-    <dev class="col my-3">
+    <div class="col-8 mx-auto">
+      <h2>作品編集</h2>
       <%= form_with model:@item, url:item_path(@item.id), local:true do |f| %>
         <div class="form-group">
           <%= f.label :作品画像 %><br>

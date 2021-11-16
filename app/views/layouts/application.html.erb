@@ -27,6 +27,7 @@
                 <div class="mr-5 my-2"><strong>ようこそ、<%= current_user.name %>さん！</strong></div>
                 <li class="nav-item"><%= link_to "マイページ", user_path(current_user.id), class: "nav-link fas fa-user-cog" %></li>
                 <li class="nav-item"><%= link_to "作品一覧", items_path, class: "nav-link fas fa-cheese" %></li>
+                <li class="nav-item"><%= link_to "ユーザー一覧", users_path, class: "nav-link fas fa-shopping-cart" %></li>
                 <li class="nav-item"><%= link_to "依頼一覧", user_order_path(current_user.id), class: "nav-link fas fa-shopping-cart" %></li>
                 <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link fas fa-sign-out-alt" %></li>
               <% else %>

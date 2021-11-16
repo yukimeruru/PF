@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get "items/:id/orders/new" => "orders#new" ,as: :orders_new
   get "users/:id/orders" => "orders#index" ,as: :user_order
-  get "orders/reply" => "orders#reply"
+  get "orders/:id/reply" => "orders#reply"
   get "orders/:id" => "orders#show" , as: :show_order
   delete "orders/:id" => "orders#destroy"
   get "orders/reply" => "orders#reply"

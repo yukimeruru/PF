@@ -8,12 +8,16 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.user_id = current_user.id
-    @order.save
-    redirect_to items_path
+    if @order.save
+      redirect_to items_path
+    else
+      render :new
+    end
   end
 
   def reply
     @order = Order.new
+    @order_date = Order.find(params[:id])
   end
 
   def index
@@ -26,6 +30,8 @@ class OrdersController < ApplicationController
   end
 
   def destroy
+    Order.find_by(id: params[:id]).destroy
+    redirect_to items_path(params[:item_id])
   end
 
   private
