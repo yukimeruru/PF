@@ -2,4 +2,5 @@
 <% @users.each do |user| %>
   <%= attachment_image_tag user, :image_id, :fill, 100, 100, fallback: "no_image.jpg" %>
   <%= user.name %>
+  <%= user.introduction %>
 <% end %>

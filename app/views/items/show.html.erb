@@ -10,10 +10,10 @@
       <%= @item.description %><br>
       <%= @item.item_status %><br>
       <%= link_to '依頼作成', orders_new_path, class: 'btn btn-sm btn-secondary' %>
-      <%# if @item.user_id == current_user.id %>
+      <% if @item.user_id == current_user.id %>
         <%= link_to "編集", edit_item_path(@item), class: "btn btn-sm btn-success" %>
         <%= link_to "削除", item_path(@item), method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn btn-sm btn-danger" %>
-      <%# end %>
+      <% end %>
     </div>
   </div>
 </div>
