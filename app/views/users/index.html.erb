@@ -1,6 +1,30 @@
-<h2>ユーザー一覧</h2>
-<% @users.each do |user| %>
-  <%= attachment_image_tag user, :image_id, :fill, 100, 100, fallback: "no_image.jpg" %>
-  <%= user.name %>
-  <%= user.introduction %>
-<% end %>
+<div class = "contener my-3" >
+  <div class = "row" >
+    <div class = "col-8 mx-auto" >
+      <h2>ユーザー一覧</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class = "col-3">ユーザー名</th>
+            <th></th>
+          </tr>
+        </thead>
+      　<tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td class = "text-center"><%= user.id %></td>
+              <td class = "text-left col-3">
+                <%= link_to user_path(user.id) do %>
+                  <%= attachment_image_tag user, :image, :fill, 40, 40, fallback: "no_image_40.jpg" %>
+                  <%= user.name %>
+                <% end %>
+              </td>
+              <td class = "text-left"><%= user.introduction %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

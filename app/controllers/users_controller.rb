@@ -12,12 +12,11 @@ class UsersController < ApplicationController
 
   def index
     @users = User.page(params[:page]).per(10)
-    @item = Item.all.order("id DESC").limit(4)
   end
 
   def show
     @user = User.find(params[:id])
-    @items = Item.page(params[:page]).per(8)
+    @items = current_user.items.page(params[:page]).per(18)
   end
 
   def out
