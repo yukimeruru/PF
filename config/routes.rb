@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   end
 
-  get "items/:id/orders/new" => "orders#new"
+  get "items/:id/orders/new" => "orders#new" ,as: :orders_new
   get "users/:id/orders" => "orders#index" ,as: :user_order
   get "orders/reply" => "orders#reply"
   get "orders/:id" => "orders#show"

@@ -15,7 +15,7 @@
         <%= link_to item_path(item) do %>
           <%= attachment_image_tag item, :image, :fill, 150, 150  %><br>
         <% end %>
-        <%= item.name %><br>
+        作品名：<%= item.name %><br>
         <%= item.item_status %>
       </div>
     <% end %>

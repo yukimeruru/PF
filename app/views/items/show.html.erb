@@ -1,5 +1,15 @@
-<h2>作品詳細</h2>
-<%= attachment_image_tag(@item, :image, :fill, 200, 200) %>
-<%= @item.name %>
-<%= @item.description %>
-<%= @item.item_status %>
+<div class="container my-3 offset-2">
+  <h2>作品詳細</h2>
+  <div class="row">
+    <div class="col-3 offset-1 my-5">
+      <%= attachment_image_tag(@item, :image, :fill, 300, 300) %>
+    </div>
+    <div class="col-3 offset-1 my-5">
+      作品名：<%= @item.name %><br>
+      作品説明<br>
+      <%= @item.description %><br>
+      <%= @item.item_status %><br>
+      <%= link_to '依頼作成', orders_new_path, class: 'btn btn-secondary' %>
+    </div>
+  </div>
+</div>
