@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :index, :update, :show, :destroy] do
     post "orders" => "orders#create"
-
+    resource :relationships, only: [:create, :destroy]
+    get :followers, on: :member
+    get :followeds, on: :member
   end
 
   get "items/:id/orders/new" => "orders#new" ,as: :orders_new
@@ -17,8 +19,8 @@ Rails.application.routes.draw do
 
   get "out" => "users#out"
 
-  resources :items
-
-
+  resources :items do
+    resource :favorites, only: [:create, :destroy]
+  end
 
 end

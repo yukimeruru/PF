@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @items = current_user.items.page(params[:page]).per(18)
+    @items = @user.items.page(params[:page]).per(18)
   end
 
   def out
@@ -29,6 +29,20 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     redirect_to root_path
+  end
+
+  def followers
+    user = User.find(params[:id])
+    @users = user.followers
+  end
+
+  def followeds
+    user = User.find(params[:id])
+    @users = user.followeds
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   private

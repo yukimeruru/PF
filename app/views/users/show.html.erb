@@ -1,25 +1,37 @@
-<div class="container">
+<div class="container my-3">
   <h2>ユーザー詳細</h2>
   <div class="row">
-    <dev class="col my-3">
+    <div class="col-lg-4 my-3">
       <%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg" %>
-      <%= @user.name %>
-      <% if @user.id == current_user.id %>
-        <%= link_to "編集", edit_user_path(current_user.id), class: "btn btn-sm btn-success" %><br>
-      <% end %>
+      <%= @user.name %><br>
       <%= @user.introduction %>
-    </div>
-    <h4>－投稿作品－ <small>全<%= @items.total_count %>件</small></h4>
-    <div class="d-flex flex-row flex-wrap">
-      <% @items.each do |item| %>
-        <div class="d-flex flex-column mr-5 mt-3">
-          <%= link_to item_path(item.id) do %>
-            <%= attachment_image_tag item, :image, :fill, 150, 150 %>
+      <% if @user.id == current_user.id %>
+        <%= link_to "編集", edit_user_path(current_user.id), class: "btn btn-sm btn-success" %>
+      <% else %>
+        <% if @user.is_followed_by?(current_user) %>
+          <%= link_to user_relationships_path(@user), method: :delete do %>
+            <button class="btn btn-sm btn-danger">フォローを外す</button>
           <% end %>
-          <%= item.name %><br>
-          <%= item.item_status_i18n %>
-        </div>
+        <% else %>
+          <%= link_to user_relationships_path(@user), method: :post do %>
+            <button class="btn btn-sm btn-primary">フォローする</button>
+          <% end %>
+        <% end %>
       <% end %>
+    </div>
+    <div class ="col-lg-8" >
+      <h4>－投稿作品－ <small>全<%= @items.total_count %>件</small></h4>
+      <div class="d-flex flex-row flex-wrap">
+        <% @items.each do |item| %>
+          <div class="d-flex flex-column mr-5 mt-3">
+            <%= link_to item_path(item.id) do %>
+              <%= attachment_image_tag item, :image, :fill, 150, 150 %>
+            <% end %>
+            <%= item.name %><br>
+            <%= item.item_status_i18n %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
