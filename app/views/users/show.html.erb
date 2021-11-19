@@ -12,6 +12,7 @@
         フォロー<%= link_to @user.followers.count, followers_user_path(@user) %>：
         フォロワー<%= link_to @user.followeds.count, followeds_user_path(@user) %>
       </div>
+      <%= link_to "ブックマーク" ,bookmarks_user_path(@user), class: 'btn btn-sm btn-success' %>
       <div class="my-3">
         <%= @user.introduction %>
       </div>

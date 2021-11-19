@@ -17,6 +17,9 @@
             <% end %>
           </div>
           <%= item.item_status_i18n %>
+          <i class="fas fa-eye">
+        　<%= item.impressionist_count(:filter=>:session_hash) %>
+      　   </i>
         </div>
       <% end %>
     </div>

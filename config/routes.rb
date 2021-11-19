@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
     get :followers, on: :member
     get :followeds, on: :member
+    get :bookmarks, on: :member
   end
 
   get "items/:id/orders/new" => "orders#new" ,as: :new_orders
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :items do
     resource :favorites, only: [:create, :destroy]
+    resource :bookmarks, only: [:create, :destroy]
   end
 
 end

@@ -74,3 +74,5 @@ gem 'enum_help'
 
 gem 'rubocop', require:false
 gem 'rubocop-rails', require:false
+
+gem 'impressionist', '~>1.6.1'

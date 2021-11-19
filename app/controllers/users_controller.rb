@@ -41,6 +41,11 @@ class UsersController < ApplicationController
     @users = user.followeds
   end
 
+  def bookmarks
+    user = User.find(params[:id])
+    @bookmarks = Bookmark.where(user_id: user.id)
+  end
+
   private
 
   def user_params

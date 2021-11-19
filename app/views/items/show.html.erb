@@ -9,17 +9,25 @@
           <% if @item.favorited_by?(current_user) %>
             <p>
               <%= link_to item_favorites_path(@item), method: :delete do %>
-                ♥<%= @item.favorites.count %>
+                いいね♥<%= @item.favorites.count %>
               <% end %>
             </p>
           <% else %>
             <p>
               <%= link_to item_favorites_path(@item), method: :post do %>
-                ♡<%= @item.favorites.count %>
+                いいね♡<%= @item.favorites.count %>
               <% end %>
             </p>
           <% end %>
+          <% if @item.bookmarked_by?(current_user) %>
+            <%= link_to "ブックマークを外す", item_bookmarks_path(@item), method: :delete %>
+          <% else %>
+            <%= link_to "ブックマーク", item_bookmarks_path(@item), method: :post %>
+          <% end %>
         <% end %>
+        <i class="fas fa-eye">
+        　<%= @item.impressionist_count(:filter=>:session_hash) %>
+      　</i>
       </div>
     </div>
     <div class="col-3 offset-1 my-5">

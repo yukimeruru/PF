@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
 
+
   def new
     @item = Item.new
   end
@@ -34,6 +35,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    impressionist(@item, nil, unique: [:session_hash.to_s])
   end
 
   def destroy
