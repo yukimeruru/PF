@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.user_id = current_user.id
+    @order.comment_status = params[:order][:comment_status].to_i
     if @order.save
       redirect_to items_path
     else
@@ -22,7 +23,7 @@ class OrdersController < ApplicationController
 
   def index
     @user = User.find(params[:id])
-    @orders = @user.orders.reverse_order
+    @orders = @user.orders
   end
 
   def show
@@ -37,7 +38,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user_id, :item_id, :order_comment, :comment_status, :image, :creater_id)
+    params.require(:order).permit(:user_id, :item_id, :order_comment, :comment_status,)
   end
 
 end

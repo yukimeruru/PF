@@ -1,16 +1,16 @@
 <div class = "contener my-3" >
   <div class = "row" >
     <div class = "col-8 mx-auto" >
-      <h2>ユーザー一覧</h2>
-      <table class="table">
+      <h2>フォロー</h2>
+      <table class='table'>
         <thead>
           <tr>
             <th></th>
-            <th class = "col-3">ユーザー名</th>
-            <th></th>
+            <th  class = "col-3">ユーザー名</th>
+            <th colspan="2"></th>
           </tr>
         </thead>
-      　<tbody>
+        <tbody>
           <% @users.each do |user| %>
             <tr>
               <td class = "text-center"><%= user.id %></td>
@@ -20,7 +20,8 @@
                   <%= user.name %>
                 <% end %>
               </td>
-              <td class = "text-left"><%= user.introduction %></td>
+              <td>フォロー数：<%= user.followers.count %></td>
+              <td>フォロワー数：<%= user.followeds.count %></td>
             </tr>
           <% end %>
         </tbody>

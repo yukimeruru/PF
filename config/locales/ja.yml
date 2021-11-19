@@ -2,7 +2,7 @@ ja:
   enums:
     item:
       item_status:
-        contribution: "投稿"
+        contribution: ""
         reception: "依頼受付中"
         reception_stop: "依頼受付停止中"
     order:

@@ -41,10 +41,6 @@ class UsersController < ApplicationController
     @users = user.followeds
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
   private
 
   def user_params
