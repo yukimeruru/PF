@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
+    binding.pry
     if @item.update(item_params)
       redirect_to items_path(@item.id)
     else
@@ -46,7 +47,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :image, :item_status)
+    params.require(:item).permit(:name, :description, :image, :item_status, :tag_list)
   end
 
 end

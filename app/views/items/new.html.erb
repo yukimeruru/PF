@@ -24,6 +24,10 @@
           <%= f.text_area :description, class: 'col-6 form-control' %>
         </div>
         <div class="form-group">
+          <%= f.label :タグ %>
+          <%= f.text_field :tag_list, value: @item.tag_list.join(','), id: 'tags', class: 'col-6 form-control' %>
+        </div>
+        <div class="form-group">
           <%= f.label :作品ステータス %>
           <%= f.radio_button :item_status, 0, checked: true %> 作品投稿
           <%= f.radio_button :item_status, 1 %> 依頼受付中

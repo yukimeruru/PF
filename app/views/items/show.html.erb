@@ -4,21 +4,11 @@
     <div class="col-3 offset-1 my-5">
       <%= attachment_image_tag(@item, :image, :fill, 300, 300) %>
       <div>
+        <div id= "favorites<%= @item.id %>">
+          <%= render "favorites/favorite-btn", item: @item %>
+        </div>
         <% if @item.user.id == current_user.id %>
         <% else %>
-          <% if @item.favorited_by?(current_user) %>
-            <p>
-              <%= link_to item_favorites_path(@item), method: :delete do %>
-                いいね♥<%= @item.favorites.count %>
-              <% end %>
-            </p>
-          <% else %>
-            <p>
-              <%= link_to item_favorites_path(@item), method: :post do %>
-                いいね♡<%= @item.favorites.count %>
-              <% end %>
-            </p>
-          <% end %>
           <% if @item.bookmarked_by?(current_user) %>
             <%= link_to "ブックマークを外す", item_bookmarks_path(@item), method: :delete %>
           <% else %>
@@ -32,6 +22,9 @@
     </div>
     <div class="col-3 offset-1 my-5">
       作品名：<%= @item.name %><br>
+      タグ：<%= @item.tag_list.each do |tag| %>
+        <%= tag %>
+      <% end %><br>
       作品説明<br>
       <%= @item.description %><br>
       <%= @item.item_status_i18n %><br>

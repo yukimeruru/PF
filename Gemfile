@@ -76,3 +76,4 @@ gem 'rubocop', require:false
 gem 'rubocop-rails', require:false
 
 gem 'impressionist', '~>1.6.1'
+gem 'acts-as-taggable-on'

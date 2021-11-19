@@ -11,6 +11,7 @@
     <div class="col-8 mx-auto">
       <h2>作品編集</h2>
       <%= form_with model:@item, url:item_path(@item.id), local:true do |f| %>
+        <%= attachment_image_tag @item, :image, :fill, 150, 150 %>
         <div class="form-group">
           <%= f.label :作品画像 %><br>
           <%= f.attachment_field :image %>
@@ -24,10 +25,14 @@
           <%= f.text_area :description, class: 'col-6 form-control' %>
         </div>
         <div class="form-group">
+          <%= f.label :タグ %>
+          <%= f.text_field :tag_list, value: @item.tag_list.join(','), id: 'tags', class: 'col-6 form-control' %>
+        </div>
+        <div class="form-group">
           <%= f.label :作品ステータス %>
-        　<%= f.radio_button :item_status, 0 %>作品投稿
-        　<%= f.radio_button :item_status, 1 %>依頼受付中
-        　<%= f.radio_button :item_status, 2 %>依頼受付停止中
+        　<%= f.radio_button :item_status, 0, checked: true %>作品投稿
+        　<%= f.radio_button :item_status, 1 %> 依頼受付中
+        　<%= f.radio_button :item_status, 2 %> 依頼受付停止中
         </div>
         <%= f.submit "変更保存", class: 'btn btn-sm btn-secondary' %>
         </dev>
