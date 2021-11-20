@@ -8,8 +8,9 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.user_id = current_user.id
-    @order.comment_status = params[:order][:comment_status].to_i
+    @order_item = @order.item
     if @order.save
+      @order_item.create_notification_order!(current_user, @order.id)
       redirect_to items_path
     else
       render :new
