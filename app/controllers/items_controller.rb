@@ -21,7 +21,6 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    binding.pry
     if @item.update(item_params)
       redirect_to items_path(@item.id)
     else
@@ -31,7 +30,11 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    @items = Item.page(params[:page]).per(12)
+    @pages = Item.page(params[:page]).per(12)
+    if params[:tag_name]
+      @items = Item.tagged_with(params[:tag_name])
+      @pages = @items.page(params[:page]).per(12)
+    end
   end
 
   def show

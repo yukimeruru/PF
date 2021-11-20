@@ -1,6 +1,6 @@
 
 <div class="container my-3">
-  <h2>作品一覧 <small>全<%= @items.total_count %>件</small></h2>
+  <h2>作品一覧 <small>全<%= @items.count %>件</small></h2>
   <div class="row my-3">
     <div class="d-flex flex-row flex-wrap">
       <% @items.each do |item| %>
@@ -25,4 +25,4 @@
     </div>
   </div>
 </div>
-<%= paginate @items %>
+<%= paginate @pages %>
