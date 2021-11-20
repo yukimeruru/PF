@@ -25,4 +25,6 @@ Rails.application.routes.draw do
     resource :bookmarks, only: [:create, :destroy]
   end
 
+  get "search" => "searchs#search"
+
 end
