@@ -6,11 +6,10 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
-    @order.user_id = current_user.id
-    @order_item = @order.item
+    user = User.find(params[:user_id])
+    @order = current_user.orders.new(order_params)
+    @order.user_id = user.id
     if @order.save
-      @order_item.create_notification_order!(current_user, @order.id)
       redirect_to items_path
     else
       render :new
@@ -32,14 +31,14 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    Order.find_by(id: params[:id]).destroy
-    redirect_to items_path(params[:item_id])
+    Order.find_by(params[:id]).destroy
+    redirect_to orders_path(current_user)
   end
 
   private
 
   def order_params
-    params.require(:order).permit(:user_id, :item_id, :order_comment, :comment_status,)
+    params.require(:order).permit(:user_id, :item_id, :order_comment, :comment_status)
   end
 
 end
