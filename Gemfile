@@ -78,3 +78,8 @@ gem 'rubocop-rails', require:false
 gem 'impressionist', '~>1.6.1'
 gem 'acts-as-taggable-on'
 gem 'jquery-ui-rails'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
